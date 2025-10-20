@@ -6,24 +6,21 @@
 # Validate that the input is a positive integer.
 # Use a for loop to print the Fibonacci sequence up to that many terms.
 
-a = 0
-b = 1
-temp = 0
-while True:
-    num = input("Please enter a positive integer: ")
-
-    if num.isdigit():
-        num = int(num)
-        if num > 0:
-            break
-        
-        else:
-            print("Enter a valid integer")
+def fib(num):
+    a = 0
+    b = 1
+    temp = 0
+    if num < 0:
+        print("Invalid input")
+    elif num == 0:
+        return 0
+    elif num == 1:
+        return b
     else:
-        print("Enter a number")
+        for i in range(num):
+            print(a, end=" ")
+            temp = a
+            a = b
+            b = temp + b
 
-for i in range(num):
-    print(a, end=" ")
-    temp = a
-    a = b
-    b = temp + b
+print(fib(5))
